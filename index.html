@@ -187,6 +187,36 @@ h1 em{font-style:italic;color:var(--brand)}
 .final-cta{text-align:center;padding:8px 0 4px}
 .final-cta .btn{max-width:360px;margin:12px auto 0}
 @media (min-width:720px){.steps3{grid-template-columns:repeat(3,minmax(0,1fr))}.pillars{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.hnav{display:none}
+.hlogin{display:none;border:1.5px solid var(--line);background:var(--paper);color:var(--ink);border-radius:10px;padding:0 14px;min-height:44px;font-weight:600;cursor:pointer}
+@media (min-width:560px){.hlogin{display:inline-flex;align-items:center}}
+@media (min-width:1100px){.hnav{display:flex;gap:4px;margin-left:auto}.hnav button{border:0;background:none;color:var(--ink);font-size:15px;font-weight:500;padding:10px 12px;border-radius:8px;cursor:pointer}.hnav button:hover{background:var(--sand)}.pv-tag{margin-right:0}}
+.member-link{margin:12px 0 0;font-size:14px;color:var(--muted)}
+@media (min-width:560px){.member-link{display:none}}
+.phone{border:10px solid #1F1714;border-radius:38px;padding:16px 10px 18px;background:var(--bg);box-shadow:0 24px 48px rgba(31,23,20,.18)}
+.phone .card{margin:0;box-shadow:none}
+.vis{background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:12px;margin:0 0 14px;display:grid;gap:6px;min-height:118px;align-content:start}
+.vis .vq{font-family:var(--serif);font-size:16px;line-height:1.25;color:var(--brand)}
+.vis .vo{font-size:12px;border:1px solid var(--line);background:var(--paper);border-radius:6px;padding:5px 8px}
+.vis .vo.sel{background:var(--brand);color:var(--paper);border-color:var(--brand)}
+.vis .vm{font-size:12px;color:var(--muted)}
+.vbar{display:block;height:6px;border-radius:3px;background:var(--sand);overflow:hidden}
+.vbar i{display:block;height:100%;background:var(--brand)}
+.vcols{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;align-items:end;height:80px}
+.vcols>span{display:flex;flex-direction:column;justify-content:flex-end;align-items:center;height:100%;gap:4px}
+.vcols i{display:block;width:100%;border-radius:4px 4px 0 0;background:var(--brand);opacity:.85}
+.vcols em{font-style:normal;font-size:11px;color:var(--muted)}
+.mem-top{display:flex;gap:16px;align-items:center}
+.mem-top .gauge{flex:none;margin:0}
+.mem-state{font-size:28px;margin:2px 0 4px}
+.path{list-style:none;margin:8px 0 20px;padding:0;display:grid;gap:10px}
+.path li{display:grid;grid-template-columns:minmax(0,1fr) 70px 46px;gap:12px;align-items:center;background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:14px}
+.path li.now{border-color:var(--brand);border-width:1.5px}
+.path b{display:block;font-size:15px}
+.path span{font-size:12px;color:var(--muted)}
+.path em{font-style:normal;font-size:12px;font-weight:600;color:var(--brand);text-align:right}
+.mem-note-t{font-weight:700;margin:0 0 4px}
+#s-member h3{margin:22px 0 8px}
 .lessons{list-style:none;margin:8px 0 12px;padding:0;display:grid;gap:8px}
 .lessons li{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 14px;border:1px solid var(--line);border-radius:8px;background:var(--sand)}
 .lessons .lt{font-weight:600;font-size:15px}
@@ -317,6 +347,8 @@ dialog::backdrop{background:rgba(20,12,10,.45)}
 <header class="site">
   <div class="hbar">
     <button type="button" class="brand" id="home" aria-label="Capacity Lab, back to start"><svg class="logo" aria-hidden="true"><use href="#cl-lockup"/></svg></button><span class="pv-tag">Preview</span>
+    <nav class="hnav" aria-label="Site"><button type="button" data-go="ls-how">How it works</button><button type="button" data-go="ls-pillars">Pillars</button><button type="button" data-go="ls-faq">Questions</button><button type="button" data-go="ls-partners">For partners</button></nav>
+    <button type="button" class="hlogin" data-login>Log in</button>
     <div class="menu">
       <button type="button" id="viewbtn" aria-haspopup="true" aria-expanded="false" aria-controls="viewmenu"><span id="viewlabel">The check</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 6l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
       <div class="menu-list" id="viewmenu" role="menu" hidden>
@@ -336,6 +368,7 @@ dialog::backdrop{background:rgba(20,12,10,.45)}
     <h1 id="h-intro">Where are you, <em>really</em>, this season?</h1>
     <p class="lede">Eight honest questions, two minutes, and a clear picture of where you are right now, before you plan anything else.</p>
     <button type="button" class="btn" id="start">Start the check</button>
+      <p class="member-link">Already a member? <button type="button" class="inline-link" data-login>Log in</button></p>
     <ul class="facts">
       <li><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.2" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M8 4.8V8l2.2 1.4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>2 minutes</li>
       <li><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 4h10M3 8h10M3 12h6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>8 questions</li>
@@ -348,13 +381,13 @@ dialog::backdrop{background:rgba(20,12,10,.45)}
       </div>
     <aside class="peek" aria-label="An example result">
       <p class="eyebrow">An example result</p>
-      <div class="card">
+      <div class="phone"><div class="card">
         <svg class="gauge" id="peek-gauge" viewBox="0 0 220 220" aria-hidden="true"></svg>
         <p class="state">Holding steady</p>
         <p>You have a good base right now. Notice what’s keeping you steady, so you can protect it when life gets busier.</p>
         <h3>Your one next step</h3>
         <p class="next">Put ten minutes for yourself in your calendar, at the same time each day, like an appointment.</p>
-      </div>
+      </div></div>
     </aside>
   
     <div class="landing-more">
@@ -362,9 +395,9 @@ dialog::backdrop{background:rgba(20,12,10,.45)}
         <h2 id="ls-how">One small step at a time</h2>
         <p class="sub">Capacity Lab starts with where you are, then helps you build from there.</p>
         <div class="steps3">
-          <div class="step3"><b>Check</b><p>Eight honest questions show where you are this season, and what needs care first.</p><span class="tag now">Available now</span></div>
-          <div class="step3"><b>Learn</b><p>Short lessons for each pillar, a few minutes a day, in the order that fits your result.</p><span class="tag">In the member space</span></div>
-          <div class="step3"><b>Grow</b><p>A short re-check each month shows what has changed, so you can see your progress.</p><span class="tag">In the member space</span></div>
+          <div class="step3"><div class="vis" aria-hidden="true"><span class="vq">How often do you wake up feeling rested?</span><span class="vo">Some days</span><span class="vo sel">Most days</span></div><b>Check</b><p>Eight honest questions show where you are this season, and what needs care first.</p><span class="tag now">Available now</span></div>
+          <div class="step3"><div class="vis" aria-hidden="true"><span class="vq">Rest that counts when sleep is broken</span><span class="vm">Lesson 2 of 5 · 4 min</span><span class="vbar"><i style="width:40%"></i></span><span class="vm">Asking for help without guilt</span><span class="vbar"><i style="width:0%"></i></span></div><b>Learn</b><p>Short lessons for each pillar, a few minutes a day, in the order that fits your result.</p><span class="tag">In the member space</span></div>
+          <div class="step3"><div class="vis" aria-hidden="true"><span class="vm">Your monthly re-check</span><span class="vcols"><span><i style="height:38%"></i><em>Sep</em></span><span><i style="height:55%"></i><em>Oct</em></span><span><i style="height:72%"></i><em>Nov</em></span></span></div><b>Grow</b><p>A short re-check each month shows what has changed, so you can see your progress.</p><span class="tag">In the member space</span></div>
         </div>
       </section>
       <section class="ls" aria-labelledby="ls-pillars">
@@ -459,6 +492,26 @@ dialog::backdrop{background:rgba(20,12,10,.45)}
       <button type="button" class="btn" id="to-join">Join the waitlist</button>
     </div>
     <div class="row"><button type="button" class="link" id="to-share">Share my result</button><button type="button" class="link" id="again">Take the check again</button></div>
+  </section>
+
+  <section class="screen" id="s-member" aria-labelledby="h-member">
+    <button type="button" class="back" id="member-back"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M12.5 4.5L7 10l5.5 5.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Home</button>
+    <p class="eyebrow">An example member space <span class="badge">Release 2</span></p>
+    <h2 id="h-member">Welcome back</h2>
+    <div class="card mem-top">
+      <svg class="gauge" id="mem-gauge" viewBox="0 0 220 220" aria-hidden="true"></svg>
+      <div><p class="small">This month</p><p class="state mem-state">Holding steady</p><p class="small">Last month you were Rebuilding. Your next re-check is in 6 days.</p></div>
+    </div>
+    <h3>Your learning path</h3>
+    <ul class="path">
+      <li><div><b>Rest that counts when sleep is broken</b><span>Rest · 5 short lessons</span></div><span class="vbar"><i style="width:100%"></i></span><em>Done</em></li>
+      <li class="now"><div><b>Asking for help without guilt</b><span>Support · 4 short lessons</span></div><span class="vbar"><i style="width:50%"></i></span><em>2 of 4</em></li>
+      <li><div><b>Eating for you, not just for everyone else</b><span>Nourishment · 4 short lessons</span></div><span class="vbar"><i style="width:0%"></i></span><em>Next</em></li>
+    </ul>
+    <h3>This week’s note</h3>
+    <div class="card"><p class="mem-note-t">Ten minutes that are only yours</p><p>Pick one moment this week that belongs to you, and protect it like an appointment. It doesn’t have to be long to count.</p><p class="sig">With you, Georgianna</p></div>
+    <h3>Your circle</h3>
+    <div class="card"><p>A small, moderated group of women in the same season, to share what helps. Coming later.</p></div>
   </section>
 
   <section class="screen" id="s-join" aria-labelledby="h-join">
@@ -792,6 +845,7 @@ Georgianna</div>
   const RAYS = makeRays($('spin'));
   const GAUGE = makeRays($('r-gauge')).filter((r) => !r.faded);
   makeRays($('peek-gauge')).filter((r) => !r.faded).slice(0, 9).forEach((r) => r.l.classList.add('lit'));
+  makeRays($('mem-gauge')).filter((r) => !r.faded).slice(0, 9).forEach((r) => r.l.classList.add('lit'));
   async function fillGauge(total) {
     const n = Math.max(1, Math.min(GAUGE.length, Math.round(total / 21 * GAUGE.length)));
     GAUGE.forEach((r) => r.l.classList.remove('lit'));
@@ -860,6 +914,12 @@ Georgianna</div>
       await navigator.clipboard.writeText(text); $('ask-ok').hidden = false;
     } catch (e) { /* closed the share sheet */ }
   });
+  document.querySelectorAll('[data-login]').forEach((b) => b.addEventListener('click', () => { view('her'); show('s-member'); }));
+  $('member-back').addEventListener('click', () => show('s-intro'));
+  document.querySelectorAll('[data-go]').forEach((b) => b.addEventListener('click', () => {
+    view('her'); show('s-intro');
+    requestAnimationFrame(() => $(b.dataset.go).scrollIntoView({behavior: reduced ? 'auto' : 'smooth', block: 'start'}));
+  }));
   $('start2').addEventListener('click', () => { window.scrollTo({top: 0}); $('start').click(); });
   $('start').addEventListener('click', () => { step = 0; show('s-q'); renderQ(); });
   // Keyboard: number keys pick an answer on desktop.
