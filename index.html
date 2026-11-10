@@ -148,6 +148,45 @@ header.site #home,header.site #viewbtn{min-height:44px}
 .copybox{white-space:pre-line;background:var(--sand);border:1px solid var(--line);border-radius:8px;padding:14px 16px;font-size:15px;line-height:1.55;margin:8px 0 12px}
 .kit h3{margin:0}
 .btn.copy{width:auto;padding:0 18px;height:44px}
+.peek{display:none}
+@media (min-width:960px){
+  .hbar{max-width:1040px;padding:0 28px}
+  main.wide{max-width:1040px}
+  main#her{max-width:600px}
+  main#her:has(#s-intro.on){max-width:1040px;padding-top:56px}
+  #s-intro.on{display:grid;grid-template-columns:minmax(0,1fr) 400px;gap:64px;align-items:start}
+  #s-intro h1{font-size:60px}
+  #s-intro .lede{font-size:20px}
+  #s-intro .btn#start{max-width:360px}
+  .peek{display:block}
+  .peek .card{margin-top:8px}
+  .foot{max-width:600px}
+  body:has(#s-intro.on) .foot{max-width:1040px;padding-left:28px;padding-right:28px}
+}
+h1 em{font-style:italic;color:var(--brand)}
+.landing-more{grid-column:1/-1;margin-top:44px;display:grid;gap:36px}
+.ls h2,.partners h2,.final-cta h2{font-size:28px;line-height:1.15;margin:0 0 6px}
+.ls .sub{color:var(--muted);margin:0 0 16px}
+.steps3{display:grid;gap:12px}
+.step3{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:18px}
+.step3 b{font-size:18px;color:var(--brand)}
+.step3 p{margin:6px 0 10px;font-size:15px;line-height:1.5}
+.tag{display:inline-block;font-size:12px;font-weight:600;color:var(--muted);background:var(--sand);border-radius:6px;padding:3px 8px}
+.tag.now{color:var(--paper);background:var(--brand)}
+.pillars{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.pillar{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:14px}
+.pillar b{display:block;font-size:16px}
+.pillar span{display:block;font-size:13px;color:var(--muted);margin-top:2px}
+.mission{background:var(--brand);color:var(--paper);border-radius:14px;padding:30px 24px}
+.mission blockquote{margin:0;font-family:var(--serif);font-style:italic;font-size:34px;line-height:1.15}
+.mission .who{margin:8px 0 14px;font-size:14px;font-weight:600;opacity:.85}
+.mission p{margin:0;font-size:17px;line-height:1.55}
+.ls details{margin:0 0 10px}
+.partners{border:1.5px solid var(--brand);border-radius:12px;padding:22px;background:var(--paper)}
+.partners p{margin:0 0 8px}
+.final-cta{text-align:center;padding:8px 0 4px}
+.final-cta .btn{max-width:360px;margin:12px auto 0}
+@media (min-width:720px){.steps3{grid-template-columns:repeat(3,minmax(0,1fr))}.pillars{grid-template-columns:repeat(4,minmax(0,1fr))}}
 .lessons{list-style:none;margin:8px 0 12px;padding:0;display:grid;gap:8px}
 .lessons li{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 14px;border:1px solid var(--line);border-radius:8px;background:var(--sand)}
 .lessons .lt{font-weight:600;font-size:15px}
@@ -293,7 +332,8 @@ dialog::backdrop{background:rgba(20,12,10,.45)}
 
 <main id="her">
   <section class="screen on" id="s-intro" aria-labelledby="h-intro">
-    <h1 id="h-intro">Where are you, really, this season?</h1>
+    <div class="intro-main">
+    <h1 id="h-intro">Where are you, <em>really</em>, this season?</h1>
     <p class="lede">Eight honest questions, two minutes, and a clear picture of where you are right now, before you plan anything else.</p>
     <button type="button" class="btn" id="start">Start the check</button>
     <ul class="facts">
@@ -305,7 +345,63 @@ dialog::backdrop{background:rgba(20,12,10,.45)}
       <p>No ads, no tracking, and nothing you share is ever sold or used for marketing. You can change your choices at any time. Your result is worked out on your phone. Only anonymous counts leave it, such as how many checks are finished and which result came up, never anything that identifies you. Your answers are only stored if you join the waitlist and say yes to keeping them, and you can ask for everything to be deleted at any time. <button type="button" class="inline-link" data-open="privacy">Read the privacy notice</button></p>
     </details>
     <p class="notice">Some questions are personal, and you can skip them. For women 18 and over.</p>
-    <figure class="founder note"><blockquote>“State before strategy.”</blockquote><figcaption><span class="av" aria-hidden="true">G</span><span><b>Georgianna</b>Founder of Capacity Lab</span></figcaption></figure>
+      </div>
+    <aside class="peek" aria-label="An example result">
+      <p class="eyebrow">An example result</p>
+      <div class="card">
+        <svg class="gauge" id="peek-gauge" viewBox="0 0 220 220" aria-hidden="true"></svg>
+        <p class="state">Holding steady</p>
+        <p>You have a good base right now. Notice what’s keeping you steady, so you can protect it when life gets busier.</p>
+        <h3>Your one next step</h3>
+        <p class="next">Put ten minutes for yourself in your calendar, at the same time each day, like an appointment.</p>
+      </div>
+    </aside>
+  
+    <div class="landing-more">
+      <section class="ls" aria-labelledby="ls-how">
+        <h2 id="ls-how">One small step at a time</h2>
+        <p class="sub">Capacity Lab starts with where you are, then helps you build from there.</p>
+        <div class="steps3">
+          <div class="step3"><b>Check</b><p>Eight honest questions show where you are this season, and what needs care first.</p><span class="tag now">Available now</span></div>
+          <div class="step3"><b>Learn</b><p>Short lessons for each pillar, a few minutes a day, in the order that fits your result.</p><span class="tag">In the member space</span></div>
+          <div class="step3"><b>Grow</b><p>A short re-check each month shows what has changed, so you can see your progress.</p><span class="tag">In the member space</span></div>
+        </div>
+      </section>
+      <section class="ls" aria-labelledby="ls-pillars">
+        <h2 id="ls-pillars">The Capacity Lab pillars</h2>
+        <p class="sub">The check looks at every part of your capacity, not just one.</p>
+        <div class="pillars">
+          <div class="pillar"><b>Energy</b><span>How full your tank feels</span></div>
+          <div class="pillar"><b>Rest</b><span>Sleep, and the rest that counts</span></div>
+          <div class="pillar"><b>Body</b><span>How you feel in it</span></div>
+          <div class="pillar"><b>Nourishment</b><span>Eating for you too</span></div>
+          <div class="pillar"><b>Mind</b><span>How full your head is</span></div>
+          <div class="pillar"><b>Support</b><span>Who helps carry the load</span></div>
+          <div class="pillar"><b>Time for you</b><span>Minutes that are only yours</span></div>
+        </div>
+      </section>
+      <section class="mission" aria-label="Mission">
+        <blockquote>“State before strategy.”</blockquote>
+        <p class="who">Georgianna, Founder of Capacity Lab</p>
+        <p>Before any new plan, look at how you are really doing. That is where every Capacity Lab journey starts.</p>
+      </section>
+      <section class="ls" aria-labelledby="ls-faq">
+        <h2 id="ls-faq">Questions women ask</h2>
+        <details><summary>Is this medical advice?</summary><p>No. The check describes how you are doing and suggests small, everyday steps. It does not diagnose anything. If you feel very low, it points you to your GP or midwife.</p></details>
+        <details><summary>What happens to my answers?</summary><p>Your result is worked out on your phone. Your answers are only kept if you join the waitlist and say yes to keeping them, and you can have them deleted at any time.</p></details>
+        <details><summary>How long does it take?</summary><p>About two minutes. Eight short questions, one on each screen.</p></details>
+        <details><summary>Is it free?</summary><p>Yes, the check is free.</p></details>
+      </section>
+      <section class="partners" aria-labelledby="ls-partners">
+        <h2 id="ls-partners">For midwives, studios and employers</h2>
+        <p>Share the check with the women you support, with your own link. As Capacity Lab grows, partners also see anonymous insights for their group, never a name.</p>
+        <p class="small">The partner programme opens after launch.</p>
+      </section>
+      <section class="final-cta">
+        <h2>Two minutes. Eight honest questions.</h2>
+        <button type="button" class="btn" id="start2">Start the check</button>
+      </section>
+    </div>
   </section>
 
   <section class="screen" id="s-q">
@@ -337,7 +433,7 @@ dialog::backdrop{background:rgba(20,12,10,.45)}
       <div class="carebox" id="r-care" hidden>If you have felt this low for more than two weeks, please talk to your GP or midwife. You don’t have to carry it alone. In an emergency, call 112.</div>
       <div class="duo"><div><span>Holding you up</span><strong id="r-strong"></strong></div><div><span>Needs care first</span><strong id="r-weak"></strong></div></div>
       <div><h3>Your one next step</h3><p class="next" id="r-next"></p>
-        <div class="when" role="group" aria-label="When will you do it?"><span>When will you do it?</span><button type="button" data-when="Tonight">Tonight</button><button type="button" data-when="Tomorrow">Tomorrow</button><button type="button" data-when="This weekend">This weekend</button></div>
+        <div class="when" role="group" aria-label="When will you do it?"><span>When will you do it?</span><button type="button" data-when="Today">Today</button><button type="button" data-when="Tomorrow">Tomorrow</button><button type="button" data-when="This weekend">This weekend</button></div>
         <p class="small plan" id="plan" hidden></p>
         <div class="ask"><p class="ask-h">Ask for one thing</p><p class="small" id="ask-text"></p><button type="button" class="btn ghost" id="ask-btn">Send this to someone you trust</button><p class="small ask-ok" id="ask-ok" hidden>Copied. Paste it to someone you trust.</p></div>
         <p class="sig">With you, Georgianna</p></div>
@@ -354,7 +450,7 @@ dialog::backdrop{background:rgba(20,12,10,.45)}
     </div>
     <div class="card cta" id="wl">
       <h3>Keep your result</h3>
-      <p class="small">Join the waitlist and you get:</p>
+      <p class="small">When you join the waitlist, you get</p>
       <ul class="perks">
         <li>Your result and next step by email, if you choose to keep them</li>
         <li>One short note a week, written for your season</li>
@@ -376,7 +472,7 @@ dialog::backdrop{background:rgba(20,12,10,.45)}
       <input type="email" id="email" autocomplete="email" inputmode="email" placeholder="you@example.com">
       <label class="consent"><input type="checkbox" id="c-email"><span>Email me the weekly notes and early access. I am 18 or older.</span></label>
       <label class="consent"><input type="checkbox" id="c-health"><span>Also keep my check answers, so the notes fit my result. <em>Optional. You can have them deleted at any time.</em></span></label>
-      <p class="small" style="margin:0 0 10px">How your data is handled: <button type="button" class="inline-link" data-open="privacy">privacy notice</button>.</p>
+      <p class="small" style="margin:0 0 10px">Read how your data is handled in the <button type="button" class="inline-link" data-open="privacy">privacy notice</button>.</p>
       <p class="error" id="err" role="alert"></p>
       <button type="button" class="btn" id="join">Join the waitlist</button>
     </div>
@@ -402,7 +498,7 @@ dialog::backdrop{background:rgba(20,12,10,.45)}
     <details class="mail" open><summary>The welcome email</summary>
       <div class="email">
         <div class="meta"><span class="from"><svg aria-hidden="true"><use href="#cl-mark"/></svg><span><b>Capacity Lab</b></span></span><br>Subject: <b id="e-subject"></b></div>
-        <div class="body"><p id="e-hi"></p><p id="e-state"></p><p id="e-next"></p><p>Next week, I’ll send one short note on what tends to help in this season. No tracking, no long plans.</p><p style="margin:0">Warmly,<br>Georgianna</p></div>
+        <div class="body"><p id="e-hi"></p><p id="e-state"></p><p id="e-next"></p><p>Next week, I’ll send one short note on what tends to help in this season. No tracking, no long plans.</p><p style="margin:0">With you,<br>Georgianna</p></div>
         <div class="foot">You’re receiving this because you joined the Capacity Lab waitlist. Unsubscribe in one click · Ask for your data to be deleted</div>
       </div>
     </details>
@@ -416,7 +512,7 @@ dialog::backdrop{background:rgba(20,12,10,.45)}
     <div class="storycard"><span class="k">My capacity this season</span><span class="s" id="c-state"></span><span class="k">Where are you, really? Take the Capacity Check</span><svg class="mini-logo" role="img" aria-label="Capacity Lab"><use href="#cl-lockup"/></svg></div>
     <button type="button" class="btn" id="save">Save card</button>
     <p class="toast" id="toast" aria-live="polite"></p>
-    <div class="row" style="justify-content:center"><button type="button" class="link" id="restart">Start again</button></div>
+    <div class="row" style="justify-content:center"><button type="button" class="link" id="restart">Take the check again</button></div>
   </section>
 </main>
 <footer class="foot" id="foot"><span>© 2026 Capacity Lab</span><button type="button" data-open="privacy">Privacy policy</button><button type="button" data-open="cookies">Cookies</button><button type="button" data-open="privacy">Your data</button></footer>
@@ -430,11 +526,11 @@ dialog::backdrop{background:rgba(20,12,10,.45)}
   </div></dialog>
 <dialog id="privacy" aria-labelledby="pv-title"><div class="dlg">
   <h2 id="pv-title">Privacy notice</h2>
-  <p>Plain-language summary. The full policy will be written with you before launch.</p>
-  <h3>Who is responsible</h3><p>Capacity Lab (Georgianna). Contact: the Capacity Lab email address, added before launch.</p>
-  <h3>What is collected</h3><ul><li>Anonymous counts: checks started and finished, result type, season and link source. Nothing that identifies anyone.</li><li>If she joins: first name and email.</li><li>Only if she says yes: her check answers, which count as health data.</li></ul>
-  <h3>Where and how long</h3><ul><li>Stored in the EU.</li><li>Kept until she unsubscribes; check answers are deleted after 24 months at the latest.</li></ul>
-  <h3>Her rights</h3><p>See, correct, export or delete her data, and withdraw either consent at any time, with one email.</p>
+  <p>A short summary in plain words. The full privacy policy will be added before launch.</p>
+  <h3>Who is responsible</h3><p>Capacity Lab, founded by Georgianna Andrei. Contact details will be added before launch.</p>
+  <h3>What is collected</h3><ul><li>Anonymous counts of checks started and finished, the result type, season and link source. Nothing that identifies you.</li><li>If you join the waitlist, your first name and email.</li><li>Only if you say yes, your check answers, which count as health data.</li></ul>
+  <h3>Where and how long</h3><ul><li>Stored in the EU.</li><li>Kept until you unsubscribe. Check answers are deleted after 24 months at the latest.</li></ul>
+  <h3>Your rights</h3><p>You can see, correct, export or delete your data, and withdraw either consent at any time, with one email.</p>
   <button type="button" class="btn" data-close>Close</button>
 </div></dialog>
 
@@ -599,9 +695,9 @@ Georgianna</div>
   const Q = [
     {id:'season', pillar:'Your season', t:'First, which season of life are you in right now?', o:[['postpartum','Pregnant or newly postpartum'],['little','Raising little ones'],['work','A demanding stretch at work'],['between','In between chapters'],['steady','A steady, settled season']]},
     {id:'energy', pillar:'Energy', t:'This past week, how has your energy really been?', o:[[0,'Running on empty'],[1,'Up and down'],[2,'Mostly steady'],[3,'Full and clear']]},
-    {id:'rest', pillar:'Rest', t:'When you wake up, how rested do you feel?', o:[[0,'Not at all'],[1,'Some days'],[2,'Most days'],[3,'Almost always']]},
+    {id:'rest', pillar:'Rest', t:'How often do you wake up feeling rested?', o:[[0,'Almost never'],[1,'Some days'],[2,'Most days'],[3,'Almost always']]},
     {id:'body', pillar:'Body', t:'How does your body feel these days?', skip:true, o:[[0,'Sore or unsettled most days'],[1,'Some aches I keep noticing'],[2,'Mostly comfortable'],[3,'At ease in my body']]},
-    {id:'food', pillar:'Nourishment', t:'Are you eating for yourself, not just for everyone else?', o:[[0,'Honestly, I barely get to it'],[1,'In bits and pieces'],[2,'Fairly regularly'],[3,'Yes, without having to think about it']]},
+    {id:'food', pillar:'Nourishment', t:'How often do you eat properly yourself, not just feed everyone else?', o:[[0,'Honestly, I barely get to it'],[1,'In bits and pieces'],[2,'Fairly regularly'],[3,'Most days, without thinking about it']]},
     {id:'mind', pillar:'Mind', t:'How does your mind feel on most days?', skip:true, o:[[0,'Heavy or overwhelmed'],[1,'Busy and scattered'],[2,'Mostly calm'],[3,'Clear and light']]},
     {id:'support', pillar:'Support', t:'Who is helping you carry the load right now?', o:[[0,'Mostly just me'],[1,'Some help, not enough'],[2,'I have good support'],[3,'I feel well held']]},
     {id:'time', pillar:'Time for you', t:'How much of your week is just for you?', o:[[0,'None at all'],[1,'A few minutes here and there'],[2,'Some real time'],[3,'Enough to feel like myself']]}
@@ -695,6 +791,7 @@ Georgianna</div>
   }
   const RAYS = makeRays($('spin'));
   const GAUGE = makeRays($('r-gauge')).filter((r) => !r.faded);
+  makeRays($('peek-gauge')).filter((r) => !r.faded).slice(0, 9).forEach((r) => r.l.classList.add('lit'));
   async function fillGauge(total) {
     const n = Math.max(1, Math.min(GAUGE.length, Math.round(total / 21 * GAUGE.length)));
     GAUGE.forEach((r) => r.l.classList.remove('lit'));
@@ -747,7 +844,7 @@ Georgianna</div>
   }
   document.querySelectorAll('.when button').forEach((b) => b.addEventListener('click', () => {
     document.querySelectorAll('.when button').forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
-    $('plan').textContent = 'Planned for ' + b.dataset.when.toLowerCase() + '. A small plan with a time attached is far more likely to happen.';
+    $('plan').textContent = 'Planned for ' + b.dataset.when.toLowerCase() + '. Putting a time on a small step makes it easier to do.';
     $('plan').hidden = false;
   }));
   document.querySelectorAll('.copy').forEach((b) => b.addEventListener('click', async () => {
@@ -763,6 +860,7 @@ Georgianna</div>
       await navigator.clipboard.writeText(text); $('ask-ok').hidden = false;
     } catch (e) { /* closed the share sheet */ }
   });
+  $('start2').addEventListener('click', () => { window.scrollTo({top: 0}); $('start').click(); });
   $('start').addEventListener('click', () => { step = 0; show('s-q'); renderQ(); });
   // Keyboard: number keys pick an answer on desktop.
   document.addEventListener('keydown', (e) => {
